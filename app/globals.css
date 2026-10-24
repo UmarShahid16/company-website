@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --canvas: #ffffff;
+  --surface: #f7f8fb;
+  --ink: #111a31;
+  --muted: #5b667d;
+  --line: #e5e8ef;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --canvas: #101521;
+    --surface: #171e2d;
+    --ink: #f3f5fb;
+    --muted: #a6afc0;
+    --line: #2a3447;
+  }
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { font-feature-settings: "ss01" on, "cv11" on; }
+  ::selection { color: #101832; background: #c9f36a; }
+  :focus-visible { outline: 3px solid #3457eb; outline-offset: 3px; }
+  a { text-underline-offset: 0.2em; }
+  button, input, select, textarea { font: inherit; }
+  input, select, textarea { color-scheme: light dark; }
+  .hero-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      scroll-behavior: auto !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+.form-input {
+  display: block;
+  width: 100%;
+  min-height: 3rem;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  background-color: var(--canvas);
+  padding: 0.75rem 1rem;
+  color: var(--ink);
+  font-size: 0.875rem;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.form-input:focus {
+  border-color: #3457eb;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(52, 87, 235, 0.16);
+}
+
+.form-input::placeholder {
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+.skip-link {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+  transform: translateY(-5rem);
+  border-radius: 0.5rem;
+  background-color: #3457eb;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: transform 150ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
