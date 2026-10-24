@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Icon } from "@/components/icon";
+import { BookCallButton } from "@/components/book-call-button";
 import { site } from "@/lib/site";
 
 const links = [
@@ -34,9 +35,7 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <Link href="/contact" className="hidden items-center gap-2 rounded-full bg-brand px-5 py-3 text-[13px] font-bold text-white shadow-sm shadow-brand/20 transition hover:-translate-y-0.5 hover:bg-brand-dark md:inline-flex">
-          Book a free call <Icon name="arrowUpRight" className="size-4" />
-        </Link>
+        <BookCallButton className="hidden min-h-11 px-5 py-2.5 text-[13px] md:inline-flex" />
         <button
           type="button"
           className="grid size-10 place-items-center rounded-xl border border-line text-ink md:hidden"
@@ -55,9 +54,7 @@ export function SiteHeader() {
                 {link.label}
               </Link>
             ))}
-            <Link href="/contact" onClick={() => setOpen(false)} className="mt-2 rounded-full bg-brand px-4 py-3 text-center text-sm font-semibold text-white">
-              Book a free call
-            </Link>
+            <BookCallButton className="mt-2 w-full" />
           </div>
         </nav>
       )}

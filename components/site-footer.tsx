@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BookCallButton } from "@/components/book-call-button";
 import { CookiePreferencesButton } from "@/components/cookie-consent";
 import { site } from "@/lib/site";
 
@@ -16,6 +17,13 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-white/10 bg-[#101832] text-white">
       <div className="mx-auto max-w-site px-5 py-14 sm:px-8 md:py-16">
+        <div className="mb-12 flex flex-col gap-5 rounded-3xl border border-white/10 bg-white/[.05] p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[.16em] text-lime">Have a project in mind?</p>
+            <p className="mt-2 text-xl font-semibold tracking-tight text-white sm:text-2xl">Let’s find your best next step.</p>
+          </div>
+          <BookCallButton className="w-full sm:w-auto" />
+        </div>
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr]">
           <div>
             <Link href="/" className="flex w-fit items-center gap-2.5">

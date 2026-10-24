@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Icon } from "@/components/icon";
+import { BookCallButton } from "@/components/book-call-button";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { services, processSteps, projects, technologies, testimonials, site } from "@/lib/site";
@@ -46,9 +47,7 @@ export default function HomePage() {
               Your dependable software team for turning ambitious plans into products your customers love—and your business can grow on.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href="/contact" className="inline-flex min-h-13 items-center justify-center gap-2 rounded-full bg-lime px-6 py-3.5 text-sm font-bold text-[#101832] shadow-lg shadow-black/20 transition hover:-translate-y-0.5 hover:bg-white">
-                Book a free discovery call <Icon name="arrowUpRight" className="size-4" />
-              </Link>
+              <BookCallButton className="min-h-13 px-6 py-3.5" />
               <Link href="/work" className="inline-flex min-h-13 items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[.04] px-6 py-3.5 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-white/10">
                 Explore our work <Icon name="arrowRight" className="size-4" />
               </Link>
@@ -230,7 +229,7 @@ export default function HomePage() {
           <p className="relative text-xs font-bold uppercase tracking-[.18em] text-white/70">Your next step starts with a conversation</p>
           <h2 className="relative mx-auto mt-4 max-w-3xl text-balance text-3xl font-semibold leading-tight tracking-[-.04em] text-white sm:text-4xl md:text-5xl">Let’s make something your customers love.</h2>
           <p className="relative mx-auto mt-4 max-w-xl text-sm leading-6 text-white/80 md:text-base">Tell us what you’re working on. We’ll bring honest advice, useful questions, and absolutely no pressure.</p>
-          <Link href="/contact" className="relative mt-8 inline-flex items-center gap-2 rounded-full bg-lime px-6 py-3.5 text-sm font-semibold text-ink transition hover:bg-white">Book a free call <Icon name="arrowUpRight" className="size-4" /></Link>
+          <BookCallButton className="relative mt-8" />
         </div>
       </section>
     </>

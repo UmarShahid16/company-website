@@ -9,6 +9,7 @@ A responsive Next.js App Router marketing website for a software development par
 - Framer Motion for subtle, reduced-motion-aware section reveals
 - MDX blog posts with frontmatter
 - Next.js server action and Resend for contact form delivery
+- Cal.com embedded strategy-call booking with a post-booking confirmation page
 - Optional Google Analytics 4, loaded only after analytics consent
 - Vercel-ready sitemap, robots, metadata, and structured data
 
@@ -45,6 +46,8 @@ A responsive Next.js App Router marketing website for a software development par
    ```
 
 4. Visit [http://localhost:3000](http://localhost:3000).
+
+5. Set `NEXT_PUBLIC_CALENDAR_URL` to your Cal.com event URL. The embedded scheduler redirects successful bookings to `/book-a-call/thank-you`. The thank-you page sends a GA4 `generate_lead` event only when the visitor has opted into analytics and a real measurement ID is configured.
 
 ## Contact form email
 

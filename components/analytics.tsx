@@ -23,6 +23,8 @@ export function Analytics() {
       window.gtag = function gtag(...args: unknown[]) { window.dataLayer?.push(args); };
       window.gtag("js", new Date());
       window.gtag("config", measurementId, { anonymize_ip: true });
+      window.pendingGtagEvents?.forEach((args) => window.gtag?.(...args));
+      window.pendingGtagEvents = [];
     }
 
     syncConsent();
@@ -33,9 +35,20 @@ export function Analytics() {
   return null;
 }
 
+export function trackGenerateLead() {
+  if (typeof window === "undefined" || localStorage.getItem(consentKey) !== "accepted") return;
+  const event = ["event", "generate_lead"];
+  if (window.gtag) {
+    window.gtag(...event);
+    return;
+  }
+  window.pendingGtagEvents = [...(window.pendingGtagEvents ?? []), event];
+}
+
 declare global {
   interface Window {
     dataLayer?: unknown[][];
     gtag?: (...args: unknown[]) => void;
+    pendingGtagEvents?: unknown[][];
   }
 }

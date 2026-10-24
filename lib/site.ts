@@ -7,7 +7,9 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://your-domain.com",
   email: "hello@your-domain.com",
   location: "Distributed team · US-friendly hours",
-  calendarUrl: process.env.NEXT_PUBLIC_CALENDAR_URL ?? "https://cal.com/your-team/intro",
+  calendarUrl: process.env.NEXT_PUBLIC_CALENDAR_URL ?? "https://cal.com/umar-shahid-ylcuq7/30min",
+  calendarConfigured:
+    !(process.env.NEXT_PUBLIC_CALENDAR_URL ?? "https://cal.com/umar-shahid-ylcuq7/30min").includes("your-team/intro"),
 };
 
 export const services = [

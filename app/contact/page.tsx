@@ -29,14 +29,10 @@ export default function ContactPage() {
             <span className="grid size-10 place-items-center rounded-xl bg-brand-soft text-brand"><Icon name="message" /></span>
             <h2 className="mt-5 text-lg font-semibold text-ink">Prefer to talk it through?</h2>
             <p className="mt-2 text-sm leading-6 text-muted">Pick a time that works for you. We’ll use the first call to understand your goals and see if we’re a good fit.</p>
-            <iframe
-              src={site.calendarUrl}
-              title="Book a free introductory call"
-              loading="lazy"
-              className="mt-5 h-[560px] w-full rounded-xl border border-line bg-canvas"
-            />
-            <a href={site.calendarUrl} target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 rounded-full bg-brand px-5 py-3 text-sm font-semibold text-white hover:bg-brand-dark">Book a free call <Icon name="arrowUpRight" className="size-4" /></a>
-            <p className="mt-3 text-xs leading-5 text-muted">If the scheduler doesn’t load, open it in a new tab. No account required.</p>
+            <Link href="/book-a-call" className="mt-5 inline-flex items-center gap-2 rounded-full bg-brand px-5 py-3 text-sm font-semibold text-white hover:bg-brand-dark">
+              Choose a time <Icon name="arrowUpRight" className="size-4" />
+            </Link>
+            <p className="mt-3 text-xs leading-5 text-muted">Opens our secure online scheduler.</p>
           </div>
           <div className="rounded-2xl border border-line bg-canvas p-6 sm:p-7">
             <h2 className="text-lg font-semibold text-ink">A few other details</h2>
