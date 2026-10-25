@@ -22,6 +22,24 @@
   }
 }
 
+:root[data-theme="light"] {
+  color-scheme: light;
+  --canvas: #ffffff;
+  --surface: #f7f8fb;
+  --ink: #111a31;
+  --muted: #5b667d;
+  --line: #e5e8ef;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --canvas: #101521;
+  --surface: #171e2d;
+  --ink: #f3f5fb;
+  --muted: #a6afc0;
+  --line: #2a3447;
+}
+
 @layer base {
   html { scroll-behavior: smooth; }
   body { font-feature-settings: "ss01" on, "cv11" on; }
@@ -29,7 +47,7 @@
   :focus-visible { outline: 3px solid #3457eb; outline-offset: 3px; }
   a { text-underline-offset: 0.2em; }
   button, input, select, textarea { font: inherit; }
-  input, select, textarea { color-scheme: light dark; }
+  input, select, textarea { color-scheme: inherit; }
   .hero-grid {
     background-image:
       linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),

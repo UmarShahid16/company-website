@@ -5,7 +5,7 @@ export const site = {
   description:
     "A reliable software development partner for ambitious US startups, small businesses, and digital agencies.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://your-domain.com",
-  email: "hello@your-domain.com",
+  email: "umarshahid7558@gmail.com",
   location: "Distributed team · US-friendly hours",
   calendarUrl: process.env.NEXT_PUBLIC_CALENDAR_URL ?? "https://cal.com/umar-shahid-ylcuq7/30min",
   calendarConfigured:
