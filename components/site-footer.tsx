@@ -16,7 +16,7 @@ const footerLinks = [
 const socialLinks = [
   { href: `mailto:${site.email}`, label: "Email us", icon: "mail" as const },
   {
-    href: "https://www.linkedin.com/in/umar-shahid-682536223/?isSelfProfile=true",
+    href: "https://www.linkedin.com/in/umar-shahid-682536223/",
     label: "LinkedIn",
     icon: "linkedin" as const,
   },
@@ -24,50 +24,72 @@ const socialLinks = [
 
 export function SiteFooter() {
   return (
-    <footer className="dark-atmosphere border-t border-white/10 text-white">
-      <div className="mx-auto max-w-site px-5 py-10 sm:px-8 md:py-12">
-        <div className="flex flex-col gap-6 border-b border-white/15 pb-7 lg:flex-row lg:items-center lg:justify-between">
-          <Link href="/" className="flex w-fit shrink-0 items-center gap-2.5">
-            <span className="relative grid size-10 place-items-center rounded-[14px] bg-white/10 text-[12px] font-black tracking-[-.08em] text-white">
-              US<span aria-hidden="true" className="absolute -right-0.5 -top-0.5 size-2.5 rounded-full border-2 border-[#101832] bg-lime" />
-            </span>
-            <span className="text-[16px] font-bold tracking-[-.04em] text-white">{site.shortName}</span>
-          </Link>
-          <nav aria-label="Footer navigation" className="flex flex-wrap items-center gap-x-6 gap-y-3">
+    <footer className="bg-[#111111] text-white">
+      <div className="mx-auto max-w-site px-5 py-12 sm:px-8 md:py-16">
+
+        {/* Top row */}
+        <div className="flex flex-col gap-8 border-b border-white/10 pb-10 lg:flex-row lg:items-start lg:justify-between">
+
+          {/* Brand */}
+          <div className="shrink-0">
+            <Link href="/" className="inline-flex items-center gap-2.5">
+              <span aria-hidden="true" className="relative grid size-9 place-items-center rounded-[8px] bg-[#E8590C] text-[11px] font-black tracking-[-.08em] text-white">
+                US
+              </span>
+              <span className="text-[15px] font-bold tracking-[-0.03em] text-white">{site.shortName}</span>
+            </Link>
+            <p className="mt-4 max-w-[240px] text-sm leading-6 text-white/50">
+              We help businesses build smarter software, automate operations, and turn ideas into scalable products.
+            </p>
+          </div>
+
+          {/* Nav */}
+          <nav aria-label="Footer navigation" className="flex flex-wrap gap-x-8 gap-y-3">
             {footerLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-slate-300 transition hover:text-lime focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime"
+                className="text-sm text-white/55 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E8590C]"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
-          <div className="flex items-center gap-3">
+
+          {/* Social */}
+          <div className="flex items-center gap-2">
             {socialLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 aria-label={link.label}
                 title={link.label}
-                className="button-gold size-12 min-h-12 rounded-full p-0"
-                {...(link.href.startsWith("https://")
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
+                className="grid size-9 place-items-center rounded-md border border-white/10 text-white/50 transition hover:border-[#E8590C]/50 hover:bg-[#E8590C]/10 hover:text-[#E8590C]"
+                {...(link.href.startsWith("https://") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               >
-                <Icon name={link.icon} className="size-5" />
+                <Icon name={link.icon} className="size-4" />
               </a>
             ))}
           </div>
         </div>
-        <p className="max-w-md py-7 text-sm leading-6 text-slate-300">We help businesses build smarter software, automate operations, and turn ideas into scalable digital solutions.</p>
-        <div className="flex flex-col gap-3 border-t border-white/15 pt-5 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between">
+
+        {/* Contact row */}
+        <div className="flex flex-wrap gap-x-8 gap-y-2 py-7 text-sm text-white/40">
+          <a href={`mailto:${site.email}`} className="inline-flex items-center gap-2 transition hover:text-white">
+            <Icon name="mail" className="size-4" /> {site.email}
+          </a>
+          <a href={`tel:${site.phone}`} className="inline-flex items-center gap-2 transition hover:text-white">
+            <Icon name="phone" className="size-4" /> {site.phone}
+          </a>
+          <span className="inline-flex items-center gap-2">
+            <Icon name="mapPin" className="size-4" /> {site.location}
+          </span>
+        </div>
+
+        {/* Bottom row */}
+        <div className="flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/30 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-            <CookiePreferencesButton />
-            <p>Distributed team · US-friendly hours</p>
-          </div>
+          <CookiePreferencesButton />
         </div>
       </div>
     </footer>

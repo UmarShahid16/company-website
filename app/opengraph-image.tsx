@@ -1,10 +1,12 @@
 import { ImageResponse } from "next/og";
+import { site } from "@/lib/site";
 
 export const alt = "US Digital Solutions — digital solutions, built for business";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default function OpenGraphImage() {
+  const domain = site.url.replace(/^https?:\/\//, "");
   return new ImageResponse(
     <div
       style={{
@@ -20,7 +22,7 @@ export default function OpenGraphImage() {
       }}
     >
       <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-        <div style={{ display: "flex", width: "56px", height: "56px", alignItems: "center", justifyContent: "center", borderRadius: "16px",         background: "#101832", color: "#ffffff", fontSize: "32px", fontWeight: 700 }}>
+        <div style={{ display: "flex", width: "56px", height: "56px", alignItems: "center", justifyContent: "center", borderRadius: "16px", background: "#101832", color: "#ffffff", fontSize: "32px", fontWeight: 700 }}>
           US
         </div>
         <div style={{ display: "flex", fontSize: "28px", fontWeight: 700, letterSpacing: "-1px" }}>US Digital Solutions</div>
@@ -35,7 +37,7 @@ export default function OpenGraphImage() {
       </div>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", color: "#657089", fontSize: "21px" }}>
         <span>Web · Backend · Mobile · SaaS</span>
-        <span style={{ color: "#0b2344", fontWeight: 700 }}>your-domain.com</span>
+        <span style={{ color: "#0b2344", fontWeight: 700 }}>{domain}</span>
       </div>
     </div>,
     { ...size },

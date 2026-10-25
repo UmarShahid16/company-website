@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageIntro } from "@/components/page-intro";
 import { Icon } from "@/components/icon";
-import { services } from "@/lib/site";
+import { services, engagementModels } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Software development services",
@@ -44,10 +44,31 @@ export default function ServicesPage() {
             </article>
           ))}
         </div>
+
         <div className="mt-12 rounded-2xl border border-line bg-surface p-7 text-center sm:p-10">
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Not sure which service is right?</h2>
-          <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-muted">Share the outcome you’re aiming for and we’ll help you work out the right scope, team, and next step.</p>
-          <Link href="/contact" className="button-gold mt-6">Book a free call <Icon name="arrowUpRight" className="size-4 text-[#f4d2a6]" /></Link>
+          <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-muted">Share the outcome you&apos;re aiming for and we&apos;ll help you work out the right scope, team, and next step.</p>
+          <Link href="/book-a-call" className="button-gold mt-6">Book a free call <Icon name="arrowUpRight" className="size-4 text-[#f4d2a6]" /></Link>
+        </div>
+
+        <div className="mt-20">
+          <div className="max-w-xl mb-10">
+            <p className="text-xs font-bold uppercase tracking-[.18em] text-[#b98b5f]">How we work together</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">Pick the engagement that fits.</h2>
+            <p className="mt-3 text-sm leading-6 text-muted">Every team and project is different. We offer three clear ways to work together so you can choose what makes sense.</p>
+          </div>
+          <div className="grid gap-5 sm:grid-cols-3">
+            {engagementModels.map((model) => (
+              <div key={model.title} className="deep-blue-panel rounded-2xl border border-white/10 p-6">
+                <span className="grid size-11 place-items-center rounded-xl border border-[#e4bb8b]/35 bg-gradient-to-br from-[#382919] to-[#17110c] text-[#f4d2a6]">
+                  <Icon name={model.icon as "layers" | "users" | "code"} />
+                </span>
+                <h3 className="mt-5 text-lg font-semibold text-white">{model.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-300">{model.description}</p>
+                <p className="mt-4 text-xs font-semibold text-[#d0aa7d]">Best for: {model.ideal}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </>

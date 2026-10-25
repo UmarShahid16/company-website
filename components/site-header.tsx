@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { Icon } from "@/components/icon";
 import { BookCallButton } from "@/components/book-call-button";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { site } from "@/lib/site";
 
 const links = [
@@ -18,47 +17,67 @@ const links = [
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-50 border-b border-line/80 bg-canvas/95 backdrop-blur-xl">
-      <div className="mx-auto flex h-[76px] max-w-site items-center justify-between px-5 sm:px-8">
+    <header className="sticky top-0 z-50 border-b border-[#E5E5E5] bg-white/95 backdrop-blur-md">
+      <div className="mx-auto flex h-[70px] max-w-site items-center justify-between px-5 sm:px-8">
+
+        {/* Logo */}
         <Link href="/" aria-label={`${site.name} home`} className="flex items-center gap-2.5">
-          <span className="relative grid size-10 shrink-0 place-items-center rounded-[14px] bg-[#101832] text-[12px] font-black tracking-[-.08em] text-white shadow-sm">
+          <span aria-hidden="true" className="relative grid size-9 shrink-0 place-items-center rounded-[8px] bg-[#E8590C] text-[11px] font-black tracking-[-.08em] text-white">
             US
-            <span aria-hidden="true" className="absolute -right-0.5 -top-0.5 size-2.5 rounded-full border-2 border-canvas bg-lime" />
+            <span aria-hidden="true" className="absolute -right-0.5 -top-0.5 size-2 rounded-full border-2 border-white bg-[#111111]" />
           </span>
           <span>
-            <span className="block whitespace-nowrap text-[14px] font-extrabold leading-tight tracking-[-.045em] text-ink sm:text-[16px]">{site.shortName}</span>
-            <span className="mt-0.5 block text-[8px] font-bold uppercase tracking-[.16em] text-muted">Digital products & engineering</span>
+            <span className="block whitespace-nowrap text-[14px] font-bold leading-tight tracking-[-0.03em] text-[#111111]">
+              {site.shortName}
+            </span>
+            <span className="mt-px block text-[9px] font-semibold uppercase tracking-[.14em] text-[#6B6B6B]">
+              Digital products &amp; engineering
+            </span>
           </span>
         </Link>
-        <nav aria-label="Main navigation" className="hidden items-center gap-1 rounded-full border border-line bg-gradient-to-r from-brand/10 via-surface to-lime/20 p-1 shadow-sm md:flex">
+
+        {/* Desktop nav */}
+        <nav aria-label="Main navigation" className="hidden items-center gap-0.5 md:flex">
           {links.map((link) => (
-            <Link key={link.href} href={link.href} className="whitespace-nowrap rounded-full px-4 py-2.5 text-[13px] font-bold text-ink transition hover:bg-[#0b2344] hover:text-white hover:shadow-md hover:shadow-[#0b2344]/30">
+            <Link
+              key={link.href}
+              href={link.href}
+              className="rounded-md px-3.5 py-2 text-[13.5px] font-medium text-[#333333] transition hover:bg-[#F7F7F7] hover:text-[#111111]"
+            >
               {link.label}
             </Link>
           ))}
         </nav>
-        <BookCallButton className="hidden min-h-11 px-5 py-2.5 text-[13px] md:inline-flex" />
-        <ThemeToggle className="hidden md:inline-flex" />
+
+        <BookCallButton className="hidden min-h-10 px-4 py-2 text-[13px] md:inline-flex" />
+
+        {/* Mobile hamburger */}
         <button
           type="button"
-          className="button-gold size-10 min-h-10 rounded-xl p-0 md:hidden"
+          className="grid size-9 place-items-center rounded-md border border-[#E5E5E5] text-[#333333] md:hidden"
           aria-label={open ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={open}
-          onClick={() => setOpen((value) => !value)}
+          onClick={() => setOpen((v) => !v)}
         >
-          <Icon name={open ? "close" : "menu"} />
+          <Icon name={open ? "close" : "menu"} className="size-4" />
         </button>
       </div>
+
+      {/* Mobile nav */}
       {open && (
-        <nav aria-label="Mobile navigation" className="border-t border-line bg-canvas px-5 py-4 md:hidden">
-          <div className="mx-auto flex max-w-site flex-col gap-1">
+        <nav aria-label="Mobile navigation" className="border-t border-[#E5E5E5] bg-white px-5 py-4 md:hidden">
+          <div className="mx-auto flex max-w-site flex-col gap-0.5">
             {links.map((link) => (
-              <Link key={link.href} href={link.href} onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-sm font-semibold text-ink transition hover:bg-surface">
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className="rounded-md px-3 py-3 text-sm font-medium text-[#333333] transition hover:bg-[#F7F7F7]"
+              >
                 {link.label}
               </Link>
             ))}
-            <ThemeToggle className="mt-2 w-full" />
-            <BookCallButton className="mt-2 w-full" onClick={() => setOpen(false)} />
+            <BookCallButton className="mt-3 w-full" onClick={() => setOpen(false)} />
           </div>
         </nav>
       )}

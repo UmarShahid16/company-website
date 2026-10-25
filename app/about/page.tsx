@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { PageIntro } from "@/components/page-intro";
 import { Icon } from "@/components/icon";
@@ -32,6 +32,8 @@ export default function AboutPage() {
         </div>
         <div className="space-y-5 text-sm leading-7 text-slate-300 md:text-base">
           <p>US Digital Solutions was founded on a simple belief: ambitious businesses deserve access to thoughtful software teams, without the friction that often comes with outsourcing.</p>
+          <p>Our team is based in Lahore, Pakistan — a city with a fast-growing engineering community and deep technical talent. We run on US-friendly hours, so conversations, reviews, and decisions happen in real time, not a day later.
+          </p>
           <p>That means keeping our team intentionally small, working closely with the people closest to your business, and making the build process easy to understand. You’ll know who is doing the work, how it’s progressing, and what decisions are coming up.</p>
           <p>Today, we partner with startups, small businesses, and agencies across the US to design, build, and improve products that help their businesses move forward.</p>
         </div>

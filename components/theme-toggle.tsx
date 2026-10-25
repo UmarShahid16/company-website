@@ -3,40 +3,50 @@
 import { useEffect, useState } from "react";
 import { Icon } from "@/components/icon";
 
-const themeKey = "us-digital-solutions-theme";
+const STORAGE_KEY = "us-digital-solutions-theme";
 
-export function ThemeToggle({ className = "" }: { className?: string }) {
+function applyTheme(dark: boolean) {
+  const root = document.documentElement;
+  if (dark) {
+    root.classList.add("dark");
+    root.setAttribute("data-theme", "dark");
+  } else {
+    root.classList.remove("dark");
+    root.setAttribute("data-theme", "light");
+  }
+}
+
+export function ThemeToggle() {
   const [isDark, setIsDark] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem(themeKey);
-    const shouldUseDarkTheme = savedTheme
-      ? savedTheme === "dark"
-      : window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-    setIsDark(shouldUseDarkTheme);
-    if (savedTheme) {
-      document.documentElement.dataset.theme = savedTheme;
-    }
+    setMounted(true);
+    const saved = localStorage.getItem(STORAGE_KEY);
+    const useDark = saved === "dark"; // default always light
+    setIsDark(useDark);
+    applyTheme(useDark);
   }, []);
 
-  function toggleTheme() {
-    const nextTheme = isDark ? "light" : "dark";
-    document.documentElement.dataset.theme = nextTheme;
-    localStorage.setItem(themeKey, nextTheme);
-    setIsDark(nextTheme === "dark");
+  function toggle() {
+    const next = !isDark;
+    setIsDark(next);
+    applyTheme(next);
+    localStorage.setItem(STORAGE_KEY, next ? "dark" : "light");
   }
+
+  if (!mounted) return null;
 
   return (
     <button
       type="button"
-      aria-label={`Switch to ${isDark ? "light" : "dark"} theme`}
+      onClick={toggle}
+      aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
       aria-pressed={isDark}
-      onClick={toggleTheme}
-      className={`button-gold px-3 text-xs ${className}`}
+      className="theme-toggle-fab"
+      title={isDark ? "Light mode" : "Dark mode"}
     >
-      <Icon name={isDark ? "moon" : "sun"} className="size-4" />
-      <span>{isDark ? "Dark" : "Light"}</span>
+      <Icon name={isDark ? "sun" : "moon"} className="size-4" />
     </button>
   );
 }

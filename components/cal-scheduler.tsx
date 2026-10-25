@@ -15,20 +15,22 @@ export function CalScheduler() {
     async function configureScheduler() {
       const cal = await getCalApi({ namespace: schedulerNamespace });
       if (cancelled) return;
+
       cal("ui", {
-        theme: "dark",
+        theme: "light",
         layout: "month_view",
         cssVarsPerTheme: {
           light: {
-            "--cal-brand": "#d7ad7c",
-            "--cal-brand-text": "#17110c",
+            "--cal-brand":      "#E8590C",
+            "--cal-brand-text": "#ffffff",
           },
           dark: {
-            "--cal-brand": "#d7ad7c",
-            "--cal-brand-text": "#17110c",
+            "--cal-brand":      "#E8590C",
+            "--cal-brand-text": "#ffffff",
           },
         },
       });
+
       cal("on", {
         action: "bookingSuccessfulV2",
         callback: () => {
@@ -38,22 +40,22 @@ export function CalScheduler() {
     }
 
     void configureScheduler();
-    return () => {
-      cancelled = true;
-    };
+    return () => { cancelled = true; };
   }, []);
 
   if (!site.calendarConfigured) {
     return (
-      <div className="flex min-h-[420px] flex-col items-center justify-center rounded-2xl border border-dashed border-line bg-surface p-8 text-center">
-        <span className="grid size-12 place-items-center rounded-2xl bg-brand text-white">
+      <div className="flex min-h-[420px] flex-col items-center justify-center rounded-xl border border-dashed border-[#E5E5E5] bg-[#F7F7F7] p-8 text-center">
+        <span className="grid size-12 place-items-center rounded-xl bg-[#E8590C] text-white">
           <span className="text-lg font-bold" aria-hidden="true">30</span>
         </span>
-        <h3 className="mt-5 text-lg font-semibold text-ink">Online scheduling is being set up</h3>
-        <p className="mt-2 max-w-sm text-sm leading-6 text-muted">
-          Add your Cal.com event URL in <code className="rounded bg-canvas px-1.5 py-0.5 text-xs">NEXT_PUBLIC_CALENDAR_URL</code> to enable appointment booking.
+        <h3 className="mt-5 text-lg font-semibold text-[#111111]">Online scheduling is being set up</h3>
+        <p className="mt-2 max-w-sm text-sm leading-6 text-[#6B6B6B]">
+          Add your Cal.com event URL in{" "}
+          <code className="rounded bg-white px-1.5 py-0.5 text-xs border border-[#E5E5E5]">NEXT_PUBLIC_CALENDAR_URL</code>{" "}
+          to enable appointment booking.
         </p>
-        <Link href="/contact" className="mt-5 text-sm font-semibold text-brand underline underline-offset-4">Send us a message instead</Link>
+        <Link href="/contact" className="button-gold mt-5">Send us a message instead</Link>
       </div>
     );
   }
@@ -61,14 +63,15 @@ export function CalScheduler() {
   const calLink = new URL(site.calendarUrl).pathname.replace(/^\/+|\/+$/g, "");
 
   return (
-    <div className="deep-blue-panel min-h-[680px] overflow-hidden rounded-2xl border border-white/10">
+    <div className="min-h-[680px] overflow-hidden rounded-xl border border-[#E5E5E5]">
       <Cal
         calLink={calLink}
         namespace={schedulerNamespace}
         config={{
           layout: "month_view",
-          theme: "dark",
-          "ui.color-scheme": "dark",
+          theme: "light",
+          /* Force US Eastern timezone so visitors see US business hours */
+          timezone: "America/New_York",
         }}
         style={{ width: "100%", height: "680px", overflow: "scroll" }}
       />
