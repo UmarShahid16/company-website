@@ -28,8 +28,8 @@ export function CookieConsent() {
         <p className="mt-1 max-w-xl text-sm leading-6 text-muted">We use optional analytics cookies to understand site traffic. You can accept or decline; essential site features work either way.</p>
       </div>
       <div className="mt-4 flex shrink-0 gap-2 sm:mt-0">
-        <button type="button" onClick={() => choose("rejected")} className="rounded-full border border-line px-4 py-2.5 text-sm font-semibold text-ink hover:bg-surface">Decline</button>
-        <button type="button" onClick={() => choose("accepted")} className="rounded-full bg-brand px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-dark">Accept analytics</button>
+        <button type="button" onClick={() => choose("rejected")} className="button-gold px-4 py-2.5">Decline</button>
+        <button type="button" onClick={() => choose("accepted")} className="button-gold px-4 py-2.5">Accept analytics</button>
       </div>
     </aside>
   );

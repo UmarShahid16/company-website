@@ -19,8 +19,8 @@ export default function BookingThankYouPage() {
   return (
     <>
       <LeadConversionTracker />
-      <section className="relative isolate overflow-hidden bg-[#101832] text-white">
-        <div aria-hidden="true" className="pointer-events-none absolute -right-32 -top-40 size-[500px] rounded-full bg-[radial-gradient(circle_at_center,rgba(52,87,235,.34),transparent_68%)]" />
+      <section className="hero-grid dark-atmosphere relative isolate overflow-hidden text-white">
+        <div aria-hidden="true" className="pointer-events-none absolute -right-32 -top-40 size-[500px] rounded-full bg-[radial-gradient(circle_at_center,rgba(23,59,112,.5),transparent_68%)]" />
         <div className="relative mx-auto max-w-3xl px-5 py-20 text-center sm:px-8 md:py-28">
           <span className="mx-auto grid size-16 place-items-center rounded-full bg-lime text-[#101832]">
             <Icon name="check" className="size-8" />
@@ -44,10 +44,10 @@ export default function BookingThankYouPage() {
           ))}
         </div>
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Link href="/work" className="inline-flex items-center gap-2 rounded-full bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark">
+          <Link href="/work" className="button-gold">
             Explore case studies <Icon name="arrowRight" className="size-4" />
           </Link>
-          <Link href="/blog" className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-3 text-sm font-semibold text-ink transition hover:bg-surface">
+          <Link href="/blog" className="button-gold">
             Read our blog <Icon name="arrowRight" className="size-4" />
           </Link>
         </div>

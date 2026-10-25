@@ -43,8 +43,8 @@
 @layer base {
   html { scroll-behavior: smooth; }
   body { font-feature-settings: "ss01" on, "cv11" on; }
-  ::selection { color: #101832; background: #c9f36a; }
-  :focus-visible { outline: 3px solid #3457eb; outline-offset: 3px; }
+  ::selection { color: #17110c; background: #d7ad7c; }
+  :focus-visible { outline: 3px solid #0b2344; outline-offset: 3px; }
   a { text-underline-offset: 0.2em; }
   button, input, select, textarea { font: inherit; }
   input, select, textarea { color-scheme: inherit; }
@@ -54,6 +54,22 @@
       linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
     background-size: 56px 56px;
   }
+  .dark-atmosphere {
+    background-color: #07080d;
+    background-image:
+      radial-gradient(ellipse at 50% 42%, rgba(47, 55, 91, 0.48) 0%, rgba(17, 20, 34, 0.52) 34%, #07080d 76%);
+  }
+  .deep-blue-panel {
+    background-color: #081426;
+    background-image: radial-gradient(ellipse at 50% 0%, rgba(22, 53, 91, 0.72), #081426 72%);
+  }
+  .hero-grid.dark-atmosphere {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+      radial-gradient(ellipse at 50% 42%, rgba(47, 55, 91, 0.48) 0%, rgba(17, 20, 34, 0.52) 34%, #07080d 76%);
+    background-size: 56px 56px, 56px 56px, auto;
+  }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       scroll-behavior: auto !important;
@@ -61,6 +77,57 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
     }
+  }
+}
+
+@layer components {
+  .button-gold {
+    position: relative;
+    display: inline-flex;
+    min-height: 3rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 1px solid transparent;
+    border-radius: 9999px;
+    background:
+      linear-gradient(#050506, #050506) padding-box,
+      linear-gradient(110deg, #73563b 0%, #e7c394 38%, #f8dfbb 52%, #876648 100%) border-box;
+    padding: 0.75rem 1.5rem;
+    color: #f8f7f4;
+    font-size: 0.875rem;
+    font-weight: 600;
+    box-shadow: 0 0 16px rgba(222, 174, 114, 0.1), inset 0 1px rgba(255, 255, 255, 0.04);
+    transition: box-shadow 180ms ease, transform 180ms ease, filter 180ms ease;
+  }
+
+  .button-gold::before {
+    position: absolute;
+    top: 0;
+    left: 18%;
+    width: 64%;
+    height: 1px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, transparent, #fff0d8 48%, transparent);
+    box-shadow: 0 0 7px 1px rgba(255, 211, 160, 0.7);
+    content: "";
+    pointer-events: none;
+  }
+
+  .button-gold:hover:not(:disabled) {
+    transform: translateY(-1px);
+    filter: brightness(1.12);
+    box-shadow: 0 0 24px rgba(222, 174, 114, 0.22), inset 0 1px rgba(255, 255, 255, 0.06);
+  }
+
+  .button-gold:focus-visible {
+    outline: 3px solid rgba(228, 187, 139, 0.55);
+    outline-offset: 3px;
+  }
+
+  .button-gold:disabled {
+    cursor: wait;
+    opacity: 0.6;
   }
 }
 
@@ -78,9 +145,9 @@
 }
 
 .form-input:focus {
-  border-color: #3457eb;
+  border-color: #0b2344;
   outline: none;
-  box-shadow: 0 0 0 3px rgba(52, 87, 235, 0.16);
+  box-shadow: 0 0 0 3px rgba(11, 35, 68, 0.22);
 }
 
 .form-input::placeholder {
@@ -95,7 +162,7 @@
   z-index: 100;
   transform: translateY(-5rem);
   border-radius: 0.5rem;
-  background-color: #3457eb;
+  background-color: #0b2344;
   padding: 0.75rem 1rem;
   color: #fff;
   font-size: 0.875rem;

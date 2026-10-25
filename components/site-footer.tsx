@@ -24,7 +24,7 @@ const socialLinks = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-white/10 bg-[#101832] text-white">
+    <footer className="dark-atmosphere border-t border-white/10 text-white">
       <div className="mx-auto max-w-site px-5 py-10 sm:px-8 md:py-12">
         <div className="flex flex-col gap-6 border-b border-white/15 pb-7 lg:flex-row lg:items-center lg:justify-between">
           <Link href="/" className="flex w-fit shrink-0 items-center gap-2.5">
@@ -51,7 +51,7 @@ export function SiteFooter() {
                 href={link.href}
                 aria-label={link.label}
                 title={link.label}
-                className="grid size-12 place-items-center rounded-full border border-lime/50 bg-lime text-[#101832] shadow-md shadow-black/20 transition hover:-translate-y-0.5 hover:bg-white hover:shadow-lg focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-lime/40"
+                className="button-gold size-12 min-h-12 rounded-full p-0"
                 {...(link.href.startsWith("https://")
                   ? { target: "_blank", rel: "noopener noreferrer" }
                   : {})}

@@ -16,16 +16,16 @@ export function CalScheduler() {
       const cal = await getCalApi({ namespace: schedulerNamespace });
       if (cancelled) return;
       cal("ui", {
-        theme: "auto",
+        theme: "dark",
         layout: "month_view",
         cssVarsPerTheme: {
           light: {
-            "--cal-brand": "#3457eb",
-            "--cal-brand-text": "#ffffff",
+            "--cal-brand": "#d7ad7c",
+            "--cal-brand-text": "#17110c",
           },
           dark: {
-            "--cal-brand": "#c9f36a",
-            "--cal-brand-text": "#101832",
+            "--cal-brand": "#d7ad7c",
+            "--cal-brand-text": "#17110c",
           },
         },
       });
@@ -46,7 +46,7 @@ export function CalScheduler() {
   if (!site.calendarConfigured) {
     return (
       <div className="flex min-h-[420px] flex-col items-center justify-center rounded-2xl border border-dashed border-line bg-surface p-8 text-center">
-        <span className="grid size-12 place-items-center rounded-2xl bg-brand-soft text-brand">
+        <span className="grid size-12 place-items-center rounded-2xl bg-brand text-white">
           <span className="text-lg font-bold" aria-hidden="true">30</span>
         </span>
         <h3 className="mt-5 text-lg font-semibold text-ink">Online scheduling is being set up</h3>
@@ -61,14 +61,14 @@ export function CalScheduler() {
   const calLink = new URL(site.calendarUrl).pathname.replace(/^\/+|\/+$/g, "");
 
   return (
-    <div className="min-h-[680px] overflow-hidden rounded-2xl border border-line bg-canvas">
+    <div className="deep-blue-panel min-h-[680px] overflow-hidden rounded-2xl border border-white/10">
       <Cal
         calLink={calLink}
         namespace={schedulerNamespace}
         config={{
           layout: "month_view",
-          theme: "auto",
-          "ui.color-scheme": "auto",
+          theme: "dark",
+          "ui.color-scheme": "dark",
         }}
         style={{ width: "100%", height: "680px", overflow: "scroll" }}
       />

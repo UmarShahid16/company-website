@@ -32,7 +32,7 @@ export function SiteHeader() {
         </Link>
         <nav aria-label="Main navigation" className="hidden items-center gap-1 rounded-full border border-line bg-gradient-to-r from-brand/10 via-surface to-lime/20 p-1 shadow-sm md:flex">
           {links.map((link) => (
-            <Link key={link.href} href={link.href} className="whitespace-nowrap rounded-full px-4 py-2.5 text-[13px] font-bold text-ink transition hover:bg-gradient-to-r hover:from-brand hover:to-[#6685ff] hover:text-white hover:shadow-md hover:shadow-brand/20">
+            <Link key={link.href} href={link.href} className="whitespace-nowrap rounded-full px-4 py-2.5 text-[13px] font-bold text-ink transition hover:bg-[#0b2344] hover:text-white hover:shadow-md hover:shadow-[#0b2344]/30">
               {link.label}
             </Link>
           ))}
@@ -41,7 +41,7 @@ export function SiteHeader() {
         <ThemeToggle className="hidden md:inline-flex" />
         <button
           type="button"
-          className="grid size-10 place-items-center rounded-xl border border-line text-ink md:hidden"
+          className="button-gold size-10 min-h-10 rounded-xl p-0 md:hidden"
           aria-label={open ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={open}
           onClick={() => setOpen((value) => !value)}

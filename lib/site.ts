@@ -86,7 +86,7 @@ export const projects = [
     solution: "We designed and built a collaborative web platform with mobile-ready workflows and clear reporting.",
     result: "A single source of truth that helps teams spend less time chasing updates and more time delivering.",
     tech: ["Next.js", "TypeScript", "Java", "PostgreSQL"],
-    color: "from-[#d9e7ff] to-[#f3f5ff]",
+    color: "from-[#10284e] to-[#1b477d]",
     mark: "F",
   },
   {
@@ -97,7 +97,7 @@ export const projects = [
     solution: "We paired experienced engineers with their team and established a shared, predictable sprint rhythm.",
     result: "More delivery capacity, stronger client confidence, and a partnership that scales with demand.",
     tech: ["React", "Node.js", "AWS", "Figma"],
-    color: "from-[#dcf8e9] to-[#f5fff7]",
+    color: "from-[#0c1b2e] to-[#163454]",
     mark: "G",
   },
   {
@@ -108,7 +108,7 @@ export const projects = [
     solution: "We rebuilt the storefront with a flexible content system and a fast, accessible shopping experience.",
     result: "A polished foundation for a growing catalog, clearer customer journeys, and easier updates.",
     tech: ["Next.js", "Shopify", "TypeScript", "Vercel"],
-    color: "from-[#ffe6d9] to-[#fff8f3]",
+    color: "from-[#101a29] to-[#25405c]",
     mark: "M",
   },
 ];

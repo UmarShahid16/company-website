@@ -13,9 +13,9 @@ const config: Config = {
         surface: "var(--surface)",
         line: "var(--line)",
         brand: {
-          DEFAULT: "#3457eb",
-          dark: "#2443cb",
-          soft: "#e9edff",
+          DEFAULT: "#0b2344",
+          dark: "#07182f",
+          soft: "#122a49",
         },
         lime: "#c9f36a",
       },

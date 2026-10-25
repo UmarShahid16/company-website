@@ -26,7 +26,7 @@ export default function OpenGraphImage() {
         <div style={{ display: "flex", fontSize: "28px", fontWeight: 700, letterSpacing: "-1px" }}>US Digital Solutions</div>
       </div>
       <div style={{ display: "flex", maxWidth: "930px", flexDirection: "column", gap: "22px" }}>
-        <div style={{ display: "flex", color: "#3457eb", fontSize: "19px", fontWeight: 700, letterSpacing: "4px", textTransform: "uppercase" }}>
+        <div style={{ display: "flex", color: "#0b2344", fontSize: "19px", fontWeight: 700, letterSpacing: "4px", textTransform: "uppercase" }}>
           Digital solutions, built for business.
         </div>
         <div style={{ display: "flex", fontSize: "76px", fontWeight: 700, letterSpacing: "-4px", lineHeight: 1.05 }}>
@@ -35,7 +35,7 @@ export default function OpenGraphImage() {
       </div>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", color: "#657089", fontSize: "21px" }}>
         <span>Web · Backend · Mobile · SaaS</span>
-        <span style={{ color: "#3457eb", fontWeight: 700 }}>your-domain.com</span>
+        <span style={{ color: "#0b2344", fontWeight: 700 }}>your-domain.com</span>
       </div>
     </div>,
     { ...size },
