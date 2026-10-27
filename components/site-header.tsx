@@ -17,20 +17,20 @@ const links = [
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-50 border-b border-[#E5E5E5] bg-white/95 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-[#E5E5E5] bg-white/95 backdrop-blur-md dark:border-white/10 dark:bg-[#111111]/95">
       <div className="mx-auto flex h-[70px] max-w-site items-center justify-between px-5 sm:px-8">
 
         {/* Logo */}
         <Link href="/" aria-label={`${site.name} home`} className="flex items-center gap-2.5">
           <span aria-hidden="true" className="relative grid size-9 shrink-0 place-items-center rounded-[8px] bg-[#E8590C] text-[11px] font-black tracking-[-.08em] text-white">
             US
-            <span aria-hidden="true" className="absolute -right-0.5 -top-0.5 size-2 rounded-full border-2 border-white bg-[#111111]" />
+            <span aria-hidden="true" className="absolute -right-0.5 -top-0.5 size-2 rounded-full border-2 border-white bg-[#111111] dark:border-[#111111] dark:bg-white" />
           </span>
           <span>
-            <span className="block whitespace-nowrap text-[14px] font-bold leading-tight tracking-[-0.03em] text-[#111111]">
+            <span className="block whitespace-nowrap text-[14px] font-bold leading-tight tracking-[-0.03em] text-[#111111] dark:text-white">
               {site.shortName}
             </span>
-            <span className="mt-px block text-[9px] font-semibold uppercase tracking-[.14em] text-[#6B6B6B]">
+            <span className="mt-px block text-[9px] font-semibold uppercase tracking-[.14em] text-[#6B6B6B] dark:text-[#999999]">
               Digital products &amp; engineering
             </span>
           </span>
@@ -42,7 +42,7 @@ export function SiteHeader() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-md px-3.5 py-2 text-[13.5px] font-medium text-[#333333] transition hover:bg-[#F7F7F7] hover:text-[#111111]"
+              className="rounded-md px-3.5 py-2 text-[13.5px] font-medium text-[#333333] transition hover:bg-[#F7F7F7] hover:text-[#111111] dark:text-[#CCCCCC] dark:hover:bg-white/10 dark:hover:text-white"
             >
               {link.label}
             </Link>
@@ -54,7 +54,7 @@ export function SiteHeader() {
         {/* Mobile hamburger */}
         <button
           type="button"
-          className="grid size-9 place-items-center rounded-md border border-[#E5E5E5] text-[#333333] md:hidden"
+          className="grid size-9 place-items-center rounded-md border border-[#E5E5E5] text-[#333333] md:hidden dark:border-white/20 dark:text-[#CCCCCC]"
           aria-label={open ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -65,14 +65,14 @@ export function SiteHeader() {
 
       {/* Mobile nav */}
       {open && (
-        <nav aria-label="Mobile navigation" className="border-t border-[#E5E5E5] bg-white px-5 py-4 md:hidden">
+        <nav aria-label="Mobile navigation" className="border-t border-[#E5E5E5] bg-white px-5 py-4 md:hidden dark:border-white/10 dark:bg-[#111111]">
           <div className="mx-auto flex max-w-site flex-col gap-0.5">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-3 text-sm font-medium text-[#333333] transition hover:bg-[#F7F7F7]"
+                className="rounded-md px-3 py-3 text-sm font-medium text-[#333333] transition hover:bg-[#F7F7F7] dark:text-[#CCCCCC] dark:hover:bg-white/10 dark:hover:text-white"
               >
                 {link.label}
               </Link>

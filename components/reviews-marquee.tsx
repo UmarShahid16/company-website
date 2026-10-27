@@ -117,31 +117,6 @@ export function ReviewsMarquee() {
         </div>
       </div>
 
-      {/* Row 2 — right scroll */}
-      <div style={{ overflow: "hidden", position: "relative", marginTop: 16 }}>
-        <div
-          aria-hidden="true"
-          style={{
-            position: "absolute", inset: "0 auto 0 0",
-            width: 80, zIndex: 2,
-            background: "linear-gradient(to right, #F7F7F7, transparent)",
-          }}
-        />
-        <div
-          aria-hidden="true"
-          style={{
-            position: "absolute", inset: "0 0 0 auto",
-            width: 80, zIndex: 2,
-            background: "linear-gradient(to left, #F7F7F7, transparent)",
-          }}
-        />
-        <div
-          className="animate-marquee-right"
-          style={{ display: "flex", gap: 16, width: "max-content", paddingBottom: 4 }}
-        >
-          {[...all].reverse().map((r, i) => <Card key={`b-${i}`} r={r} />)}
-        </div>
-      </div>
 
     </section>
   );

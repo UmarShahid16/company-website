@@ -4,7 +4,7 @@ import { BookCallButton } from "@/components/book-call-button";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { ReviewsMarquee } from "@/components/reviews-marquee";
-import { services, processSteps, projects, technologies, site } from "@/lib/site";
+import { services, processSteps, projects, technologies, testimonials, site } from "@/lib/site";
 
 const serviceIcons = ["globe", "server", "smartphone", "layers", "users"] as const;
 
@@ -250,6 +250,52 @@ export default function HomePage() {
                     </div>
                   </div>
                 </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Testimonials ───────────────────────────────────────────── */}
+      <section className="bg-[#ffffff] py-20 md:py-28">
+        <div className="mx-auto max-w-site px-5 sm:px-8">
+          <SectionHeading
+            eyebrow="Good words from good partners"
+            eyebrowClassName="text-[#E8590C]"
+            title={<>A better way to build, together.</>}
+            description="We measure success by how well our work helps your business—and what it feels like to get there."
+            centered
+          />
+          <div className="grid gap-5 md:grid-cols-2">
+            {testimonials.map((testimonial, index) => (
+              <Reveal key={testimonial.name} delay={index * 0.08}>
+                <figure className="flex h-full flex-col rounded-lg border border-[#E5E5E5] bg-white p-6 sm:p-8">
+                  <div role="img" aria-label="5 out of 5 stars" className="flex gap-0.5 text-[#E8590C]">
+                    ★★★★★
+                  </div>
+                  <blockquote className="mt-4 flex-1 text-base leading-7 text-[#333333]">
+                    &ldquo;{testimonial.quote}&rdquo;
+                  </blockquote>
+                  <figcaption className="mt-6 flex items-center gap-3 border-t border-[#E5E5E5] pt-5">
+                    <span className="grid size-10 place-items-center rounded-full bg-[#FFF1E6] text-sm font-bold text-[#E8590C]">
+                      {testimonial.initials}
+                    </span>
+                    <span>
+                      <span className="block text-sm font-semibold text-[#111111]">{testimonial.name}</span>
+                      <span className="mt-0.5 block text-xs text-[#6B6B6B]">{testimonial.role}</span>
+                      {"linkedin" in testimonial && testimonial.linkedin && (
+                        <a
+                          href={(testimonial as typeof testimonial & { linkedin: string }).linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-0.5 inline-flex items-center gap-1 text-xs text-[#E8590C] hover:underline"
+                        >
+                          <Icon name="linkedin" className="size-3" /> LinkedIn
+                        </a>
+                      )}
+                    </span>
+                  </figcaption>
+                </figure>
               </Reveal>
             ))}
           </div>

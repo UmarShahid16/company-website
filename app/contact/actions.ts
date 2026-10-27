@@ -88,7 +88,17 @@ export async function submitContactForm(
   const apiKey    = process.env.RESEND_API_KEY;
   const recipient = process.env.CONTACT_EMAIL;
 
+  // ── Dev mode: skip email, just log and return success ─────────────
   if (!apiKey || !recipient) {
+    if (process.env.NODE_ENV === "development") {
+      console.log("📧 [DEV] Contact form submission (email skipped — no env vars):");
+      console.log(`  Name:    ${name}`);
+      console.log(`  Email:   ${email}`);
+      console.log(`  Company: ${company ?? "Not provided"}`);
+      console.log(`  Budget:  ${budget || "Not provided"}`);
+      console.log(`  Message: ${message}`);
+      return { status: "success", message: "Thanks for reaching out. We'll be in touch shortly." };
+    }
     console.error("Contact form is missing RESEND_API_KEY or CONTACT_EMAIL.");
     return {
       status: "error",
